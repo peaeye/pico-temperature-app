@@ -1,0 +1,42 @@
+span.finished {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+div.eci input {
+    visibility: hidden;
+}
+
+div.eci:hover input {
+    visibility: visible;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+input[type='checkbox']:checked {
+    background: #abd;
+}
+
+.refresh {
+    float: right;
+    margin: 10px;
+}
+
+.timestampCol {
+    width: 50%;
+}
+
+.fahrenheitCol {
+    width: 25%;
+}
+
+.celciusCol {
+    width: 25%;
+}

@@ -1,0 +1,12 @@
+1. One design decision that made this assignment easier was having all my rulesets depend on global variables. 
+This way, if I needed to replace the variable with a function call from a module, 
+all I had to do was look for the variable name and replace it, instead of looking for stray numbers in the code.
+One design decision that made this assigment harder was my usage of both camel case and underscores.
+It made me have to check each time to see if the variable I was using used camel case or underscores.
+
+2. Entity variables can only be directly modified by the ruleset that contains it. All other rulesets that want to change it have to do so through the rule.
+Because of this distinction of changing data and getting data, it's easy to debug where errors come from. 
+
+3. The use the functions that sensor_profile provides in order to get the specific profile values.
+
+4. They can store values in the sensor profile's variables by using the rule update_profile. Other than that, they can't interact with the entity variables at all.

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Pico Temperatures</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body ng-app="pico_temperature_app" ng-controller="MainCtrl">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <h1>Temperatures <small class="text-right">Current Temperature: {{temperatures[0].tempF}} F</small></h1>
+                <a href="./pages/profile.html">Sensor Profile</a>
+            </div>
+
+            <div>
+                <button ng-click="retrieveData()" class="refresh btn btn-primary">Get Temperatures</button>
+            </div>
+            <div>
+                <button ng-click="resetTemperatures()" class="refresh btn btn-danger">Reset</button>
+            </div>
+
+            <table class="table table-hover">
+                <tr>
+                    <td class="timestampCol">Timestamp</td>
+                    <td class="fahrenheitCol">Temperature (Fahrenheit)</td>
+                    <td class="celciusCol">Temperature (Celcius)</td>
+                </tr>
+
+                <tbody>
+                    <tr ng-repeat="temp in temperatures | orderBy: '-timestamp'" ng-class="{'danger': isInTemperatureViolations(temp)}">
+                        <td>{{temp.timestamp}}</td>
+                        <td>{{temp.tempF}}</td>
+                        <td>{{temp.tempC}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="eci">
+                <input type="text" ng-model="eci" size="29" class="form-control"></input>
+            </div>
+
+        </div>
+    </div>
+</body>
